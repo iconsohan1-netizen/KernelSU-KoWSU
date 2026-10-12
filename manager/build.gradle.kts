@@ -12,7 +12,9 @@ val androidBuildToolsVersion by extra("37.0.0")
 val androidCompileNdkVersion: String by extra(libs.versions.ndk.get())
 val androidSourceCompatibility by extra(JavaVersion.VERSION_21)
 val androidTargetCompatibility by extra(JavaVersion.VERSION_21)
-val managerVersionCode by extra(getVersionCode())
+val managerVersionCode by extra(
+    providers.gradleProperty("KSU_VERSION_CODE").orNull?.toIntOrNull() ?: getVersionCode()
+)
 val managerVersionName by extra(
     providers.gradleProperty("KSU_VERSION_NAME").orNull ?: getVersionName()
 )
