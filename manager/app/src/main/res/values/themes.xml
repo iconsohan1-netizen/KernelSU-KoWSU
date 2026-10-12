@@ -14,7 +14,7 @@
     </style>
 
     <style name="Theme.KernelSU.Starting.Kowsu" parent="Theme.KernelSU.Starting">
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_roblox_manager_splash</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_simtoolkit_splash</item>
     </style>
 
     <style name="Theme.KernelSU.WebUI" parent="Theme.KernelSU">
