@@ -12,8 +12,8 @@ extra["androidBuildToolsVersion"] = "37.0.0"
 extra["androidCompileNdkVersion"] = libs.versions.ndk.get()
 extra["androidSourceCompatibility"] = JavaVersion.VERSION_21
 extra["androidTargetCompatibility"] = JavaVersion.VERSION_21
-extra["managerVersionCode"] = getVersionCode()
-extra["managerVersionName"] = getVersionName()
+extra["managerVersionCode"] = providers.gradleProperty("KSU_VERSION_CODE").orNull?.toIntOrNull() ?: getVersionCode()
+extra["managerVersionName"] = providers.gradleProperty("KSU_VERSION_NAME").orNull ?: getVersionName()
 
 fun getGitCommitCount(): Int {
     val process = Runtime.getRuntime().exec(arrayOf("git", "rev-list", "--count", "HEAD"))
