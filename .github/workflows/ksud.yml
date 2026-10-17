@@ -5,6 +5,11 @@ on:
       target:
         required: true
         type: string
+      package_name:
+        description: 'package name of manager'
+        required: false
+        default: ''
+        type: string
       pack_lkm:
         required: false
         type: boolean
@@ -59,6 +64,7 @@ jobs:
     - name: Build ksud
       env:
         ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+        KSU_PACKAGE_NAME: ${{ inputs.package_name }}
       run: |
         if [ "${{ github.event_name }}" = "pull_request" ]; then
           export KSU_PACKAGE_NAME="me.weishu.kernelsu.pr"
