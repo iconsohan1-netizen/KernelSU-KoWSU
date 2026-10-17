@@ -98,7 +98,7 @@ jobs:
     needs: generate-key
     uses: ./.github/workflows/build-lkm.yml
     with:
-      package_name: com.mins.fast
+      package_name: com.paperstack.manager
       expected_size: ${{ needs.generate-key.outputs.expected_size || '' }}
       expected_hash: ${{ needs.generate-key.outputs.expected_hash || '' }}
     secrets: inherit
@@ -117,7 +117,7 @@ jobs:
     uses: ./.github/workflows/ksud.yml
     with:
       target: ${{ matrix.target }}
-      package_name: com.mins.fast
+      package_name: com.paperstack.manager
       pack_lkm: true
       pack_ksuinit: true
   
